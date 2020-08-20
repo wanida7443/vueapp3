@@ -1,16 +1,94 @@
 <template>
-  <div>
-    <v-btn color="primary">Home</v-btn>
-    <v-btn icon color="pink">
-      <v-icon>mdi-heart</v-icon>
-    </v-btn>
-    <v-btn color="error">Error</v-btn>
-  </div>
+  <v-container>
+    <v-row>
+      <v-col cols="4">
+        <v-card
+            color="#385F73"
+            dark
+          >
+            <v-card-title ><div class="font-big"> จำนวนลูกค้า</div></v-card-title>
+
+            <v-card-text><div class="font-big" >50 คน</div></v-card-text>
+
+            <v-card-actions>
+              <v-btn text>ข้อมูลลูกค้า</v-btn>
+            </v-card-actions>
+          </v-card>
+      </v-col>
+      <v-col cols="4">
+        <v-card
+            color="#385F73"
+            dark
+          >
+            <v-card-title><div class="font-big">จำนวนสินค้า</div></v-card-title>
+
+            <v-card-text><div class="font-big" >100 ชิ้น</div></v-card-text>
+
+            <v-card-actions>
+              <v-btn text>ข้อมูลลสินค้า</v-btn>
+            </v-card-actions>
+          </v-card>
+      </v-col>
+      <v-col cols="4">
+        <v-card
+            color="#385F73"
+            dark
+          >
+            <v-card-title><div class="font-big">จำนวนรายงาน</div></v-card-title>
+
+            <v-card-text><div class="font-big" >16 รายการ </div></v-card-text>
+
+            <v-card-actions>
+              <v-btn text>ข้อมูลรายงาน</v-btn>
+            </v-card-actions>
+          </v-card>
+      </v-col>
+    </v-row>
+    <v-row>...
+    </v-row>
+    <v-row>
+      <v-col cols="12">
+        <v-card class="mx-auto text-center" color="green" dark >
+        <v-card-text>
+        <v-sheet color="rgba(0, 0, 0, .12)">
+        <v-sparkline
+          :value="value"
+          color="rgba(255, 255, 255, .7)"
+          height="70"
+          padding="24"
+          stroke-linecap="round"
+          smooth
+          line-width="0.5"
+          type="bar"
+        >
+          <template v-slot:label="item"> {{ item.value }} บ. </template>
+        </v-sparkline>
+      </v-sheet>
+    </v-card-text>
+
+    <v-card-text>
+      <div class="font-big">รายงานการขาย</div>
+    </v-card-text>
+  </v-card>
+      </v-col>
+    </v-row>
+     
+  </v-container>
 </template>
 
 <script>
-export default {};
+export default {
+  data (){
+    return{
+      value: [423, 446, 675, 510, 590, 610, 760],
+    }
+  }
+      
+};
 </script>
 
-<style>
+<style scope>
+  .font-big{
+    font-size: 30px;
+  }
 </style>
