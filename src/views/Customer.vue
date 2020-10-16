@@ -168,6 +168,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   data: () => ({
     valid: true,
@@ -236,6 +238,28 @@ export default {
     //   console.log(this.a_subdis)
     //   console.log(this.a_dis)
     //   console.log(this.a_proovine)
+
+   // axios.get('http://localhost:3000/api/customers/show').then((res) => {
+    //  console.log(res);
+   // });
+
+    axios.post('http://localhost:3000/api/customers',{
+        "c_name":this.name,
+        "c_lastname":this.lastname, 
+        "c_mail":this.email, 
+        "c_tel":this.tel, 
+        "c_num":this.a_number, 
+        "c_mu":this.a_group, 
+        "c_tanon":this.a_road, 
+        "c_soi":this.a_lane, 
+        "c_tumbon":this.a_subdis, 
+        "c_amphor":this.a_dis, 
+        "c_junngwan":this.a_proovine, 
+        "c_sex":this.select
+        }).then((res) => {
+      console.log(res);
+    });
+
     this.desserts.push(
         {
          fulname: `${this.neme} ${this.lastname}`,
